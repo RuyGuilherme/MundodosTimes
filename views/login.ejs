@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Maiores Times do Mundo</title>
+</head>
+
+<body>
+    <% if(message != "") {  %>
+        <section id="message">
+            <p><%= message %></p> <span id="close">&times;</span>
+        </section>
+    <% }  %>
+    <nav>
+        <p class="brand">The<strong>Best</strong></p>
+        <ul>
+            <li>
+                <li><a href="#cursos">Times</a></a></li>
+                <li><a href="/criar">Cadastrar seu time</a></li>
+            </li>
+        </ul>
+    </nav>
+
+    <header>
+        <article>
+            <h1><%= titulo %></h1>
+            <p>Maiores times do mundo</p>
+        </article>
+        <img src="https://s2.glbimg.com/HrbLzUkTzg487X8ypzap3DQgg7E=/0x0:2909x1593/600x0/smart/filters:gifv():strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2021/N/6/OueIWxRhibeIU6IBoAww/americadosul.png" class="img-fluid gif" alt="Banner">
+    </header>
+
+    <section id="cursos">
+        <h1>Lista de Times:</h1>
+
+         <% musica.forEach(item => { %>
+             <section class="card">
+                 <article id="catalogo">
+                    <ul>
+                         <li>Nome: <%= item.nome %></li>
+                         <li>Descrição: <%= item.descricao %></li>
+                         <a href="/detalhes/<%= item.id %>">
+                             <img src="<%= item.imagem %>" width=200>
+                         </a>
+                     </ul>
+                         <a href = "/editar/<%= item.id %>">Editar</a>
+                         <a href = "/deletar/<%= item.id %>">Deletar</a>
+                 </article>
+             </section>
+         <% }) %> 
+     </section>
+    
+        <footer>
+          <div class="main">
+            <% musica.forEach(item => { %>
+              <ul>
+                <img src="<%= item.imagem %>" width=200 height="200">
+              </ul>
+            <% }) %> 
+            </div>
+            <p>
+                < The time best /> <a href="#cursos" target="_blank"> Times</a>
+            </p>
+        </footer>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
